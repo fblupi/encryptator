@@ -7,20 +7,20 @@ function encrypt() {
 	var pass1 = $("#encrypterPass1").val().toUpperCase();
 	var pass2 = $("#encrypterPass2").val().toUpperCase();
 
-	// 1st. Step: Invert message
+	// 1. Invert message
 	var result = invertString(message);
 
-	// 2nd. Step: Get key for replacement
-	var replaceKey = noRepeated(pass1);
+	// 2.1. Get map for replacement with the key
+	var replaceMap = getReplacementMap(noRepeated(pass1));
 
-	// 3rd. Step: Get map for replacement with the key
-	var replaceMap = getReplacementMap(replaceKey);
-
-	// 4th. Step: Replace letters by numbers
+	// 2.2. Replace letters by numbers
 	result = replaceLettersByNumbers(result, replaceMap);
 
-	// 5th. Step: Get key for displacement
+	// 3.1. Get key for displacement
 	var displacementKey = getDisplacementKey(noRepeated(pass2));
+
+	// 3.2. Step: Displace result
+	result = displace(result, displacementKey);
 
 	// Set result
 	$("#encrypterResult").val(result);
@@ -60,6 +60,20 @@ function replaceLettersByNumbers(s, map) {
 	var o = '';
 	for (var i = 0; i < s.length; i++) {
 		o += map[s[i]];
+	}
+	return o;
+}
+
+/**
+ * Generate a new string by adding (module 10, no haul) the sequence of numbers generated repeating the key
+ * @param {string} s - Original string
+ * @param {string} key - Displacement key
+ * @return {string} o - Displaced string
+ */
+function displace(s, key) {
+	var o = '';
+	for (var i = 0; i < s.length; i++) {
+		o += (parseInt(key[i % key.length]) + parseInt(s[i])) % 10;
 	}
 	return o;
 }

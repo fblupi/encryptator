@@ -25,7 +25,7 @@ function noRepeated(s) {
 				repeated = true;
 			}
 		}
-		if(!repeated) {
+		if (!repeated) {
 			o += s[i];
 		}
 	}
