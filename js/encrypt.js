@@ -19,6 +19,9 @@ function encrypt() {
 	// 4th. Step: Replace letters by numbers
 	result = replaceLettersByNumbers(result, replaceMap);
 
+	// 5th. Step: Get key for displacement
+	var displacementKey = getDisplacementKey(noRepeated(pass2));
+
 	// Set result
 	$("#encrypterResult").val(result);
 }
