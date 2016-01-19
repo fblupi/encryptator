@@ -20,6 +20,7 @@ function decrypt() {
 	result = replaceNumbersByLetters(result, undoReplaceMap);
 
 	// 3. Undo invert
+	result = invertString(result);
 
 	// Set result
 	$("#decrypterResult").val(result);
