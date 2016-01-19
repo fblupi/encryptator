@@ -15,17 +15,17 @@
           <form name="encrypterForm" role="form" onsubmit="encrypt();" action="javascript: return false;">
             <div class="form-group">
               <label for="encrypterMessage">Message</label>
-              <input type="text" class="form-control" id="encrypterMessage" pattern="[a-zA-zñÑ ]+" required>
+              <input type="text" class="form-control" id="encrypterMessage" pattern="[A-Za-zÑñ ]+" required>
               <span class="help-block">Only letters (included <em>ñ</em>) and blank spaces without special characters (like <em>&apos;</em>, <em>á</em>, etc.). It's not sensitive with upper and lowercase.</span>
             </div>
             <div class="form-group">
               <label for="encrypterPass1">First Password</label>
-              <input type="text" class="form-control" id="encrypterPass1" minlength="2" maxlength="10" pattern="[A-Za-z]{2,10}" required>
+              <input type="text" class="form-control" id="encrypterPass1" minlength="2" maxlength="10" pattern="[A-Za-zÑñ]{2,10}" required>
               <span class="help-block">Same as message without blank spaces and length between two and ten.</span>
             </div>
             <div class="form-group">
               <label for="encrypterPass2">Second Password</label>
-              <input type="text" class="form-control" id="encrypterPass2" minlength="2" maxlength="10" pattern="[A-Za-z]{2,10}" required>
+              <input type="text" class="form-control" id="encrypterPass2" minlength="2" maxlength="10" pattern="[A-Za-zÑñ]{2,10}" required>
               <span class="help-block">Same as first password.</span>
             </div>
             <div class="form-group">
