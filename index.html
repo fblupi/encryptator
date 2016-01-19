@@ -15,17 +15,17 @@
           <form name="crypterForm" role="form">
             <div class="form-group">
               <label for="message">Message</label>
-              <textarea class="form-control" id="message"></textarea>
-              <span class="help-block">Only letters without special characters (like <em>&apos;</em>, <em>á</em>, <em>ñ</em>, etc.). It's not sensitive with upper and lowercase.</span>
+              <input type="text" class="form-control" id="message" pattern="[a-zA-z ]+" required>
+              <span class="help-block">Only letters and blank spaces without special characters (like <em>&apos;</em>, <em>á</em>, <em>ñ</em>, etc.). It's not sensitive with upper and lowercase.</span>
             </div>
             <div class="form-group">
               <label for="pass1">First Password</label>
-              <input type="text" class="form-control" id="pass1">
-              <span class="help-block">Same as message and length between two and ten.</span>
+              <input type="text" class="form-control" id="pass1" minlength="2" maxlength="10" pattern="[A-Za-z]{2,10}" required>
+              <span class="help-block">Same as message without blank spaces and length between two and ten.</span>
             </div>
             <div class="form-group">
               <label for="pass2">Second Password</label>
-              <input type="text" class="form-control" id="pass2">
+              <input type="text" class="form-control" id="pass2" minlength="2" maxlength="10" pattern="[A-Za-z]{2,10}" required>
               <span class="help-block">Same as first password.</span>
             </div>
             <div class="form-group">
