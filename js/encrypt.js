@@ -7,6 +7,9 @@ function encrypt() {
 	// 1st. Step: Invert message
 	var result = invertString(message);
 
+	// 2nd. Step: Get key for replacement
+	var replaceKey = noRepeated(pass1);
+
 	// Set result
 	$("#encrypterResult").val(result);
 }
