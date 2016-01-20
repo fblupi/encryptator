@@ -8,7 +8,7 @@ function decrypt() {
 	var pass2 = $("#decrypterPass2").val().toUpperCase();
 
 	// 1.1. Get key for displacement
-	var displacementKey = getDisplacementKey(noRepeated(pass2));
+	var displacementKey = getDisplacementKey(pass2);
 
 	// 1.2. Undo displacement
 	var result = undoDisplace(message, displacementKey);

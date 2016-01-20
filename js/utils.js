@@ -33,22 +33,25 @@ function noRepeated(s) {
 }
 
 /**
- * Generate a number key from a string with the order in the ABC of each letter of the string. For example HELLO --> 21335
+ * Generate a number key from a string with the order in the ABC of each letter of the string. For example HELLO --> 21345
  * @param {string} s - Original string
  * @return {string} o - String 
  */
 function getDisplacementKey(s) {
+	var numbers = new Array(s.length);
 	var o = '';
-	for (var i = 0; i < s.length; i++) {
-		var value = 1;
-		for (var j = 0; j < s.length; j++) {
-			if (i != j) {
-				if (s[i] > s[j]) {
-					value++;
-				}
+	var cont;
+	for (i in s){
+	    cont = 1;
+	    for (j in s){
+			if (s[j] < s[i]) {
+			    cont++;
+			} else if (s[j] == s[i] && numbers[j]) {
+			    cont++;
 			}
-		}
-		o += value;
+	    }
+	    numbers[i] = cont;
+	    o += cont;
 	}
 	return o;
 }
