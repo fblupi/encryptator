@@ -17,7 +17,7 @@ function encrypt() {
 	result = replaceLettersByNumbers(result, replaceMap);
 
 	// 3.1. Get key for displacement
-	var displacementKey = getDisplacementKey(noRepeated(pass2));
+	var displacementKey = getDisplacementKey(pass2);
 
 	// 3.2. Step: Displace result
 	result = displace(result, displacementKey);
