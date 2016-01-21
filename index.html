@@ -14,20 +14,20 @@
       <div class="row">
         <div class="col-md-6">
           <h2>Encrypt</h2>
-          <form name="encrypterForm" role="form" onsubmit="encrypt();" action="javascript: return false;">
+          <form name="encrypterForm" role="form" onsubmit="checkEncrypter();" action="javascript: return false;" novalidate>
             <div class="form-group">
               <label for="encrypterMessage">Message</label>
-              <input type="text" class="form-control" id="encrypterMessage" pattern="[A-Za-zÑñ ]+" title="Only letters and blank spaces" required>
+              <textarea class="form-control" id="encrypterMessage" onkeyup="check('#encrypterMessage', /^([a-zA-ZñÑ ])+$/)" data-toggle="tootltip" data-placement="bottom" data-trigger="manual" title="Only letters and blank spaces"></textarea>
               <span class="help-block">Only letters (included <em>ñ</em>) and blank spaces without special characters (like <em>&apos;</em>, <em>á</em>, etc.).</span>
             </div>
             <div class="form-group">
               <label for="encrypterPass1">First Password</label>
-              <input type="text" class="form-control" id="encrypterPass1" minlength="2" maxlength="10" pattern="[A-Za-zÑñ]{2,10}" title="Only letters. Size: 2 to 10" required>
+              <input type="text" class="form-control" id="encrypterPass1" onkeyup="check('#encrypterPass1', /^([a-zA-ZñÑ]){2,10}$/)" data-toggle="tootltip" data-placement="bottom" data-trigger="manual" title="Only letters. Size: 2 to 10" maxlength="10">
               <span class="help-block">Same as message without blank spaces and length between two and ten.</span>
             </div>
             <div class="form-group">
               <label for="encrypterPass2">Second Password</label>
-              <input type="text" class="form-control" id="encrypterPass2" minlength="2" maxlength="10" pattern="[A-Za-zÑñ]{2,10}" title="Only letters. Size: 2 to 10" required>
+              <input type="text" class="form-control" id="encrypterPass2" onkeyup="check('#encrypterPass1', /^([a-zA-ZñÑ]){2,10}$/)" data-toggle="tootltip" data-placement="bottom" data-trigger="manual" title="Only letters. Size: 2 to 10" maxlength="10">
               <span class="help-block">Same as first password.</span>
             </div>
             <div class="form-group">
@@ -40,20 +40,20 @@
         </div>
         <div class="col-md-6">
           <h2>Decrypt</h2>
-          <form name="decrypterForm" role="form" onsubmit="decrypt();" action="javascript: return false;">
+          <form name="decrypterForm" role="form" onsubmit="checkDecrypter();" action="javascript: return false;">
             <div class="form-group">
               <label for="decrypterMessage">Message</label>
-              <input type="text" class="form-control" id="decrypterMessage" pattern="[0-9]+" title="Only numbers" required>
+              <textarea class="form-control" id="decrypterMessage" onkeyup="check('#decrypterMessage', /^([0-9])+$/)" data-toggle="tootltip" data-placement="bottom" data-trigger="manual" title="Only numbers"></textarea>
               <span class="help-block">Only numbers.</span>
             </div>
             <div class="form-group">
               <label for="decrypterPass1">First Password</label>
-              <input type="text" class="form-control" id="decrypterPass1" minlength="2" maxlength="10" pattern="[A-Za-zÑñ]{2,10}" title="Only letters. Size: 2 to 10" required>
+              <input type="text" class="form-control" id="decrypterPass1" onkeyup="check('#decrypterPass1', /^([a-zA-ZñÑ]){2,10}$/)" data-toggle="tootltip" data-placement="bottom" data-trigger="manual" title="Only letters. Size: 2 to 10" maxlength="10">
               <span class="help-block">Same as encrypt message without blank spaces and length between two and ten.</span>
             </div>
             <div class="form-group">
               <label for="decrypterPass2">Second Password</label>
-              <input type="text" class="form-control" id="decrypterPass2" minlength="2" maxlength="10" pattern="[A-Za-zÑñ]{2,10}" title="Only letters. Size: 2 to 10" required>
+              <input type="text" class="form-control" id="decrypterPass2" onkeyup="check('#decrypterPass2', /^([a-zA-ZñÑ]){2,10}$/)" data-toggle="tootltip" data-placement="bottom" data-trigger="manual" title="Only letters. Size: 2 to 10" maxlength="10">
               <span class="help-block">Same as first password.</span>
             </div>
             <div class="form-group">
@@ -65,16 +65,13 @@
           </form>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-6">
-          <hr>
-          <h1><small>Contact</small></h1>
-          <p>You can download the code from <a href="http://github.com/fblupi/Encryptator">GitHub</a> and contact with me on <a href="http://twitter.com/fblupi">Twitter</a> or by <a href="mailto:fboli94@gmail.com?subject=Feedback%20Encryptator">email</a>.</p>
-        </div>
-      </div>
+      <hr>
+      <h1><small>Contact</small></h1>
+      <p>You can download the code from <a href="http://github.com/fblupi/Encryptator">GitHub</a> and contact with me on <a href="http://twitter.com/fblupi">Twitter</a> or by <a href="mailto:fboli94@gmail.com?subject=Feedback%20Encryptator">email</a>.</p>
     </div>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/check.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/encrypt.js"></script>
     <script src="js/decrypt.js"></script>
